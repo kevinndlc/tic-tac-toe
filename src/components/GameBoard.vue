@@ -37,6 +37,7 @@ const hasTied = ref(false);
 const wannaRestart = ref(false);
 const isCpuPlaying = ref(false);
 const isModalOpen = ref(false);
+const highlightedBoxes = ref([-1,-1,-1]);
 
 (async () => {
   if (props.opponent === 'cpu' && props.playerOneMark !== turn.value) {
@@ -138,6 +139,7 @@ function checkIfWin() {
       board.value[ROW[0]] === board.value[ROW[1]] &&
       board.value[ROW[1]] === board.value[ROW[2]]
     ) {
+      highlightedBoxes.value = [ ROW[0], ROW[1], ROW[2] ];
       isModalOpen.value = true;
       if (turn.value === 'X') {
         nbWinsX.value++;
@@ -161,6 +163,7 @@ async function nextRound() {
   isModalOpen.value = false;
   hasWon.value = false;
   hasTied.value = false;
+  highlightedBoxes.value = [ -1, -1, -1 ]
   if (wannaRestart.value) {
     nbWinsX.value = 0;
     nbWinsO.value = 0;
@@ -303,6 +306,8 @@ const whoIsO = computed(() => {
         :mark="box"
         :index="index"
         :is-cpu-playing="isCpuPlaying"
+        :highlighted="highlightedBoxes.includes(index)"
+        :current-turn="turn"
         @update-board="updateBoard"
       />
     </main>
