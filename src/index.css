@@ -4,6 +4,38 @@
 
 @layer components {
   .card {
-    @apply rounded-2xl p-6 shadow-inner
+    @apply bg-semi-dark-navy rounded-[10px];
+    box-shadow: inset 0px var(--innerShadow, -8px) 0px #10212A;
+  }
+  .card-lg {
+    @apply card rounded-[15px]
+  }
+  .card-sm {
+    --innerShadow: -4px;
+    @apply card rounded-[5px];
+  }
+
+  .btn {
+    @apply bg-silver-default hover:bg-silver-hover text-dark-navy font-bold uppercase rounded-[10px];
+    box-shadow: inset 0px var(--innerShadow, -8px) 0px var(--shadow-color, #6B8997);
+  }
+  .btn-lg {
+    @apply btn rounded-[15px]
+  }
+  .btn-sm {
+    --innerShadow: -4px;
+    @apply btn rounded-[5px]
+  }
+  .btn-primary {
+    --shadow-color: #118C87;
+    @apply btn bg-primary-default hover:bg-primary-hover;
+  }
+  .btn-secondary {
+    --shadow-color: #CC8B13;
+    @apply btn bg-secondary-default hover:bg-secondary-hover;
+  }
+  .btn-sm-secondary {
+    --shadow-color: #CC8B13;
+    @apply btn-sm bg-secondary-default hover:bg-secondary-hover;
   }
 }
