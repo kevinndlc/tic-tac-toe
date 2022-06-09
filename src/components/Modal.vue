@@ -8,8 +8,6 @@ import {
 
 defineProps<{
   isOpen: boolean;
-  cancelButtonText: string;
-  continueButtonText: string;
 }>();
 </script>
 

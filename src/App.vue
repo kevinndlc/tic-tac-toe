@@ -32,7 +32,7 @@ const mark = ref('O')
       New game (vs Player)
     </button>
   </template>
-  <GameBoard v-else :player-one-mark="mark" :opponent="opponent"/>
+  <GameBoard v-else :player-one-mark="mark" :opponent="opponent" @back="opponent = ''"/>
 </template>
 
 <style>
