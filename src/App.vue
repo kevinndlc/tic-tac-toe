@@ -4,8 +4,8 @@ import OIcon from "./components/Icons/OIcon.vue";
 import { ref } from "vue";
 import GameBoard from "./components/GameBoard.vue";
 
-const opponent = ref('');
-const mark = ref('O')
+const opponent = ref('cpu');
+const mark = ref('X')
 </script>
 
 <template>
