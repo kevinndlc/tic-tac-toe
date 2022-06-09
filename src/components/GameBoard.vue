@@ -15,7 +15,7 @@ const emit = defineEmits<{
   (e: 'back'): void;
 }>();
 
-const CPU_TIME_TO_PLAY_IN_MS = 800;
+const CPU_TIME_TO_PLAY_IN_MS = 600;
 const WINNING_ROWS = [
   [0, 1, 2],
   [3, 4, 5],
@@ -74,7 +74,6 @@ async function cpuTurn() {
       }, CPU_TIME_TO_PLAY_IN_MS);
     });
 
-    isCpuPlaying.value = false;
     const choices = [];
 
     for (const ROW of WINNING_ROWS) {
@@ -101,6 +100,8 @@ async function cpuTurn() {
         choices.push({ index: ROW[0], player: board.value[ROW[1]]});
       }
     }
+
+    isCpuPlaying.value = false;
 
     if (choices.length === 0) {
       const remainingBoxesIndex = board.value.reduce((acc, curr, index) => {
