@@ -10,16 +10,16 @@ const mark = ref('O')
 
 <template>
   <template v-if="!opponent">
-    <img src="./assets/logo.svg" alt="Logo" class="h-8 mb-8 mx-auto">
-    <div class="card-lg p-6 pb-8 text-center">
+    <img src="./assets/logo.svg" alt="Logo" class="h-8 mb-8 mx-auto lg:mb-10">
+    <div class="card-lg p-6 pb-[30px] text-center">
       <h2 class="uppercase font-bold tracking-wide mb-6">Pick Player 1's mark</h2>
-      <div class="flex gap-2 rounded-[10px] bg-dark-navy h-[72px] mb-4 p-2">
+      <div class="flex rounded-[10px] bg-dark-navy h-[72px] mb-4 p-2 lg:mb-[26px]">
         <input type="radio" name="mark" id="X" value="X" class="hidden" v-model="mark">
-        <label for="X" class="flex-1 flex items-center justify-center rounded-[10px] cursor-pointer transition-colors duration-300">
+        <label for="X" class="flex-1 flex items-center justify-center rounded-[10px] cursor-pointer hover:bg-[rgba(168,191,201,0.05)] transition-colors duration-300">
           <XIcon class="w-8" />
         </label>
         <input type="radio" name="mark" id="O" value="O" class="hidden" v-model="mark">
-        <label for="O" class="flex-1 flex items-center justify-center rounded-[10px] cursor-pointer transition-colors duration-300">
+        <label for="O" class="flex-1 flex items-center justify-center rounded-[10px] cursor-pointer hover:bg-[rgba(168,191,201,0.05)] transition-colors duration-300">
           <OIcon class="w-8" />
         </label>
       </div>
@@ -37,6 +37,6 @@ const mark = ref('O')
 
 <style>
   input:checked + label {
-    @apply bg-silver-default text-dark-navy;
+    @apply !bg-silver-default text-dark-navy;
   }
 </style>
