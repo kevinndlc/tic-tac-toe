@@ -17,6 +17,9 @@ module.exports = {
       'dark-navy': '#1A2A33',
       'semi-dark-navy': '#1F3641',
     },
+    fontFamily: {
+      outfit: ['Outfit', 'sans-serif']
+    }
   },
   plugins: [],
 };

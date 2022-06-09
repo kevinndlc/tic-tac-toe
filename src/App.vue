@@ -25,10 +25,10 @@ const mark = ref('O')
       </div>
       <p class="uppercase font-medium text-sm opacity-50">Remember: X goes first</p>
     </div>
-    <button class="btn-secondary w-full mt-8 p-[14px] pb-[22px]" @click="opponent = 'cpu'" >
+    <button class="btn-secondary w-full mt-8 p-[14px] pb-[22px] md:p-[17px] md:pb-[25px]" @click="opponent = 'cpu'" >
       New game (vs CPU)
     </button>
-    <button class="btn-primary w-full mt-4 p-[14px] pb-[22px]" @click="opponent = 'player'">
+    <button class="btn-primary w-full mt-4 p-[14px] pb-[22px] md:p-[17px] md:pb-[25px]" @click="opponent = 'player'">
       New game (vs Player)
     </button>
   </template>

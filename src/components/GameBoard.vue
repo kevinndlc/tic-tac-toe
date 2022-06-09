@@ -215,9 +215,9 @@ const whoIsX = computed(() => {
     return 'CPU';
   } else {
     if (props.playerOneMark === 'X') {
-      return 'Player 1';
+      return 'P1';
     }
-    return 'Player 2';
+    return 'P2';
   }
 });
 
@@ -229,44 +229,43 @@ const whoIsO = computed(() => {
     return 'CPU';
   } else {
     if (props.playerOneMark === 'O') {
-      return 'Player 1';
+      return 'P1';
     }
-    return 'Player 2';
+    return 'P2';
   }
 });
 </script>
 
 <template>
-  <div>
-    <Modal :isOpen="isModalOpen">
-      <template #title>{{ modalTitle }}</template>
+  <div class="min-h-screen md:min-h-0">
+    <Modal :isOpen="isModalOpen" :title="modalTitle">
       <template #description>
         <div
           v-if="hasWon"
-          class="flex gap-[9px] items-center justify-center"
+          class="flex gap-[9px] items-center justify-center md:gap-6"
           :class="
             turn === 'X' ? 'text-primary-default' : 'text-secondary-default'
           "
         >
-          <XIcon v-if="turn === 'X'" class="w-7" /><OIcon
+          <XIcon v-if="turn === 'X'" class="w-7 md:w-16" /><OIcon
             v-else
-            class="w-7"
+            class="w-7 md:w-16"
           /><span>takes the round</span>
         </div>
         <div v-else-if="hasTied">Round Tied</div>
         <div v-else>Restart Game?</div>
       </template>
-      <button class="btn-sm px-4 pt-[15px] pb-[17px] mr-4" @click="backHome">
+      <button class="btn-sm px-4 pt-[15px] pb-[17px] mr-4 md:btn" @click="backHome">
         {{ wannaRestart ? 'No, cancel' : 'Quit' }}
       </button>
       <button
-        class="btn-sm-secondary px-4 pt-[15px] pb-[17px]"
+        class="btn-sm-secondary px-4 pt-[15px] pb-[17px] md:btn-secondary"
         @click="nextRound"
       >
         {{ wannaRestart ? 'Yes, restart' : 'Next round' }}
       </button>
     </Modal>
-    <header class="relative grid grid-cols-3 items-center gap-5 mb-16">
+    <header class="relative grid grid-cols-3 items-center gap-5 mb-16 md:mb-5">
       <img
         src="@/assets/logo.svg"
         alt="Logo"
@@ -274,21 +273,21 @@ const whoIsO = computed(() => {
         @click="emit('back')"
       />
       <div
-        class="card-sm p-[9px] pb-[13px] flex items-center justify-center gap-[9px] uppercase font-bold"
+        class="card-sm p-[9px] pb-[13px] flex items-center justify-center gap-[9px] uppercase font-bold text-sm md:text-base md:gap-[13px] md:p-[13px] md:pb-[19px] md:card"
       >
-        <XIcon v-if="turn === 'X'" class="w-4" />
-        <OIcon v-else class="w-4" />
-        Turn
+        <XIcon v-if="turn === 'X'" class="w-4 md:w-5" />
+        <OIcon v-else class="w-4 md:w-5" />
+        <span class="leading-none">Turn</span>
       </div>
       <button
-        class="btn-sm w-10 aspect-square self-start ml-auto"
+        class="btn-sm w-10 aspect-square self-start ml-auto md:btn md:w-[52px]"
         @click="handleRestart"
       >
-        <RestartIcon class="w-4 mx-auto" />
+        <RestartIcon class="w-4 md:w-5 mx-auto" />
       </button>
       <p
         v-if="isCpuPlaying"
-        class="absolute font-semibold left-1/2 -bottom-7 -translate-x-1/2 translate-y-1/2"
+        class="absolute font-semibold left-1/2 -bottom-7 -translate-x-1/2 translate-y-1/2 w-full text-center md:-top-8 md:-translate-y-1/2 md:bottom-auto"
         :class="
           playerOneMark === 'X'
             ? 'text-secondary-default'
@@ -312,19 +311,19 @@ const whoIsO = computed(() => {
         class="text-center bg-primary-default text-dark-navy rounded-[10px] p-3"
       >
         <h2 class="uppercase text-sm font-medium">X ({{ whoIsX }})</h2>
-        <span class="font-bold text-xl">{{ nbWinsX }}</span>
+        <span class="font-bold text-xl md:text-2xl">{{ nbWinsX }}</span>
       </div>
       <div
         class="text-center bg-silver-default text-dark-navy rounded-[10px] p-3"
       >
         <h2 class="uppercase text-sm font-medium">Ties</h2>
-        <span class="font-bold text-xl">{{ nbTies }}</span>
+        <span class="font-bold text-xl md:text-2xl">{{ nbTies }}</span>
       </div>
       <div
         class="text-center bg-secondary-default text-dark-navy rounded-[10px] p-3"
       >
         <h2 class="uppercase text-sm font-medium">O ({{ whoIsO }})</h2>
-        <span class="font-bold text-xl">{{ nbWinsO }}</span>
+        <span class="font-bold text-xl md:text-2xl">{{ nbWinsO }}</span>
       </div>
     </footer>
   </div>

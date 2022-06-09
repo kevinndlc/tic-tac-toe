@@ -16,7 +16,7 @@
   }
 
   .btn {
-    @apply bg-silver-default hover:bg-silver-hover text-dark-navy font-bold uppercase rounded-[10px];
+    @apply bg-silver-default hover:bg-silver-hover text-dark-navy font-bold uppercase rounded-[10px] md:text-xl;
     box-shadow: inset 0px var(--innerShadow, -8px) 0px var(--shadow-color, #6B8997);
   }
   .btn-lg {
