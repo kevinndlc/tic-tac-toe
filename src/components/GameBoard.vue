@@ -308,19 +308,19 @@ const whoIsO = computed(() => {
     </main>
     <footer class="grid grid-cols-3 gap-5 mt-5">
       <div
-        class="text-center bg-primary-default text-dark-navy rounded-[10px] p-3"
+        class="text-center bg-primary-default text-dark-navy rounded-[10px] md:rounded-[15px] p-3"
       >
         <h2 class="uppercase text-sm font-medium">X ({{ whoIsX }})</h2>
         <span class="font-bold text-xl md:text-2xl">{{ nbWinsX }}</span>
       </div>
       <div
-        class="text-center bg-silver-default text-dark-navy rounded-[10px] p-3"
+        class="text-center bg-silver-default text-dark-navy rounded-[10px] md:rounded-[15px] p-3"
       >
         <h2 class="uppercase text-sm font-medium">Ties</h2>
         <span class="font-bold text-xl md:text-2xl">{{ nbTies }}</span>
       </div>
       <div
-        class="text-center bg-secondary-default text-dark-navy rounded-[10px] p-3"
+        class="text-center bg-secondary-default text-dark-navy rounded-[10px] md:rounded-[15px] p-3"
       >
         <h2 class="uppercase text-sm font-medium">O ({{ whoIsO }})</h2>
         <span class="font-bold text-xl md:text-2xl">{{ nbWinsO }}</span>
