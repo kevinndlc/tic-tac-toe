@@ -9,7 +9,8 @@ const mark = ref('O')
 </script>
 
 <template>
-  <template v-if="!opponent">
+  <main v-if="!opponent">
+    <h1 class="sr-only">TicTacToe</h1>
     <img src="./assets/logo.svg" alt="Logo" class="h-8 mb-8 mx-auto lg:mb-10">
     <div class="card-lg p-6 pb-[30px] text-center">
       <h2 class="uppercase font-bold tracking-wide mb-6">Pick Player 1's mark</h2>
@@ -31,7 +32,7 @@ const mark = ref('O')
     <button class="btn-primary w-full mt-4 p-[14px] pb-[22px] md:p-[17px] md:pb-[25px]" @click="opponent = 'player'">
       New game (vs Player)
     </button>
-  </template>
+  </main>
   <GameBoard v-else :player-one-mark="mark" :opponent="opponent" @back="opponent = ''"/>
 </template>
 
